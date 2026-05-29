@@ -33,8 +33,6 @@
 
     .star {
       position: absolute;
-      width: 2px;
-      height: 2px;
       background: white;
       border-radius: 50%;
       opacity: 0.5;
@@ -94,15 +92,37 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .cards {
+    .cards,
+    .numbers-grid,
+    .gallery,
+    .poster-wall {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 28px;
+    }
+
+    .cards {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .gallery {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .numbers-grid,
+    .poster-wall {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .card,
     .memory,
-    .about {
+    .about,
+    .guestbook,
+    .music-box,
+    .garden-box,
+    .number-card,
+    .song,
+    .poster,
+    .sticker-book {
       background: rgba(255, 255, 255, 0.035);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -113,18 +133,29 @@
     }
 
     .card:hover,
-    .memory:hover {
+    .memory:hover,
+    .number-card:hover,
+    .song:hover,
+    .poster:hover {
       transform: translateY(-8px);
       border-color: rgba(255, 79, 216, 0.35);
       box-shadow: 0 15px 35px rgba(255, 79, 216, 0.12);
       background: rgba(255, 255, 255, 0.055);
     }
 
-    .photo {
+    .photo,
+    .memory-photo {
       width: 100%;
-      height: 280px;
       background: #1a151a;
       overflow: hidden;
+    }
+
+    .photo {
+      height: 280px;
+    }
+
+    .memory-photo {
+      height: 240px;
     }
 
     .photo img,
@@ -140,12 +171,15 @@
       transform: scale(1.05);
     }
 
-    .content {
+    .content,
+    .memory-text {
       padding: 25px;
     }
 
     .content h3,
-    .memory-text h4 {
+    .memory-text h4,
+    .song h3,
+    .poster h3 {
       margin-bottom: 12px;
       font-size: 1.4rem;
       background: linear-gradient(90deg, #ff9a3d, #ff66dc);
@@ -154,7 +188,9 @@
     }
 
     .content p,
-    .memory-text p {
+    .memory-text p,
+    .song p,
+    .poster p {
       color: #c9c9c9;
       line-height: 1.7;
       font-size: 0.98rem;
@@ -185,20 +221,144 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .gallery {
+    .number-card {
+      padding: 35px 25px;
+      text-align: center;
+    }
+
+    .number-card h3 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ff9a3d, #ff66dc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .number-card p {
+      color: #c9c9c9;
+      line-height: 1.6;
+    }
+
+    .music-box,
+    .guestbook,
+    .garden-box {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    .playlist {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
+      gap: 20px;
     }
 
-    .memory-photo {
-      height: 240px;
-      background: #1a151a;
-      overflow: hidden;
+    .song {
+      padding: 24px;
     }
 
-    .memory-text {
-      padding: 25px;
+    .song span {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .garden-box {
+      text-align: center;
+    }
+
+    .garden-text,
+    .plant-status,
+    .guestbook p {
+      color: #d0d0d0;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .plant {
+      font-size: 5rem;
+      margin: 30px 0;
+      transition: 0.4s ease;
+    }
+
+    .plant.grow {
+      transform: scale(1.15) rotate(-3deg);
+    }
+
+    .sticker-book {
+      padding: 35px;
+      margin-bottom: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .sticker {
+      width: 90px;
+      height: 90px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .sticker:hover {
+      transform: rotate(-8deg) scale(1.15);
+      box-shadow: 0 10px 25px rgba(255,79,216,.2);
+    }
+
+    .poster {
+      padding: 30px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 150px;
+      resize: none;
+      border: none;
+      outline: none;
+      border-radius: 18px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.07);
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    textarea::placeholder {
+      color: #aaa;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 18px;
+      background: linear-gradient(90deg, #ff8a00, #ff4fd8);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: scale(0.99);
+    }
+
+    .saved-message {
+      margin-top: 25px;
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ddd;
+      line-height: 1.7;
+      display: none;
     }
 
     footer {
@@ -214,7 +374,11 @@
         padding: 70px 6%;
       }
 
-      .about {
+      .about,
+      .guestbook,
+      .music-box,
+      .garden-box,
+      .sticker-book {
         padding: 35px 25px;
       }
 
@@ -245,12 +409,10 @@
     <h2 class="title">her wifeys 💋</h2>
 
     <div class="cards">
-
       <div class="card">
         <div class="photo">
           <img src="fotos/jennie.jpg" alt="Jennie">
         </div>
-
         <div class="content">
           <h3>Jennie</h3>
           <p>
@@ -264,7 +426,6 @@
         <div class="photo">
           <img src="fotos/sophia.jpg" alt="Sophia">
         </div>
-
         <div class="content">
           <h3>Sophia</h3>
           <p>
@@ -278,7 +439,6 @@
         <div class="photo">
           <img src="fotos/rosie.jpg" alt="Rosé">
         </div>
-
         <div class="content">
           <h3>Rosé</h3>
           <p>
@@ -292,7 +452,6 @@
         <div class="photo">
           <img src="fotos/natasha.webp" alt="Natasha">
         </div>
-
         <div class="content">
           <h3>Natasha</h3>
           <p>
@@ -301,7 +460,6 @@
           </p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -333,11 +491,95 @@
     </div>
   </section>
 
+  <section id="numbers">
+    <h2 class="title">você em números ✦</h2>
+
+    <div class="numbers-grid">
+      <div class="number-card">
+        <h3>20</h3>
+        <p>anos de pura personalidade, caos e charme piauiense.</p>
+      </div>
+
+      <div class="number-card">
+        <h3>999+</h3>
+        <p>personagens femininas capazes de destruir a sanidade dela.</p>
+      </div>
+
+      <div class="number-card">
+        <h3>100%</h3>
+        <p>chance de ela fingir que não ligou e depois pensar demais.</p>
+      </div>
+
+      <div class="number-card">
+        <h3>∞</h3>
+        <p>motivos para ela ser uma das pessoas mais interessantes que eu conheço.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="music">
+    <h2 class="title">songs that feel like her 🎧</h2>
+
+    <div class="music-box">
+      <div class="playlist">
+        <div class="song">
+          <h3>Birds of a Feather</h3>
+          <span>Billie Eilish</span>
+          <p>
+            porque tem uma vibe de carinho escondido, apego e aquela coisa de
+            “eu não sei explicar, mas lembra você”.
+          </p>
+        </div>
+
+        <div class="song">
+          <h3>Glue Song</h3>
+          <span>beabadoobee</span>
+          <p>
+            bonitinha, grudenta e com energia de quem vira conforto sem perceber.
+          </p>
+        </div>
+
+        <div class="song">
+          <h3>From The Start</h3>
+          <span>Laufey</span>
+          <p>
+            porque parece trilha sonora de alguém tentando agir normalmente
+            enquanto sente coisas demais.
+          </p>
+        </div>
+
+        <div class="song">
+          <h3>Yellow</h3>
+          <span>Coldplay</span>
+          <p>
+            música de olhar para alguém e pensar: “é, você é meio especial mesmo”.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="garden">
+    <h2 class="title">peony garden 🌸</h2>
+
+    <div class="garden-box">
+      <p class="garden-text">
+        regue as peônias para elas florescerem.
+      </p>
+
+      <div class="plant" id="plant">🌱</div>
+
+      <button onclick="waterPlant()">regar a peônia</button>
+
+      <p id="plantStatus" class="plant-status">
+        ela ainda é só uma mudinha.
+      </p>
+    </div>
+  </section>
   <section id="memories">
     <h2 class="title">little things about her ♡</h2>
 
     <div class="gallery">
-
       <div class="memory">
         <div class="memory-photo">
           <img src="fotos/print.jpeg" alt="Ela falando de série">
@@ -378,7 +620,23 @@
           </p>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section id="guestbook">
+    <h2 class="title">livro de visitas ♡</h2>
+
+    <div class="guestbook">
+      <p>
+        escreva aqui sua reação ao descobrir que alguém teve a audácia,
+        o tempo livre e a instabilidade emocional necessária para fazer
+        um site inteiro sobre você.
+      </p>
+
+      <textarea id="guestInput" placeholder="deixe sua mensagem aqui..."></textarea>
+      <button onclick="saveMessage()">assinar o livro de visitas</button>
+
+      <div class="saved-message" id="savedMessage"></div>
     </div>
   </section>
 
@@ -406,6 +664,53 @@
     }
 
     starsContainer.appendChild(fragment);
+
+    let waterCount = 0;
+
+    function waterPlant() {
+      const plant = document.getElementById("plant");
+      const status = document.getElementById("plantStatus");
+
+      waterCount++;
+
+      plant.classList.add("grow");
+
+      setTimeout(() => {
+        plant.classList.remove("grow");
+      }, 300);
+
+      if (waterCount === 1) {
+        plant.innerText = "🌿";
+        status.innerText = "ela cresceu um pouquinho.";
+      } else if (waterCount === 2) {
+        plant.innerText = "🌷";
+        status.innerText = "quase florescendo...";
+      } else if (waterCount === 3) {
+        plant.innerText = "🌸";
+        status.innerText = "uma peônia nasceu para ela.";
+      } else if (waterCount === 4) {
+        plant.innerText = "🌸🌸";
+        status.innerText = "agora tem duas, porque uma só seria pouco.";
+      } else {
+        plant.innerText = "🌸🌸🌸";
+        status.innerText = "jardim completo. oficialmente mimada.";
+      }
+    }
+
+    function saveMessage() {
+      const input = document.getElementById("guestInput");
+      const messageBox = document.getElementById("savedMessage");
+
+      if (input.value.trim() === "") {
+        messageBox.style.display = "block";
+        messageBox.innerText = "escreve alguma coisa, joyce. não seja misteriosa agora.";
+        return;
+      }
+
+      messageBox.style.display = "block";
+      messageBox.innerText = "vocẽ escreveu: “" + input.value + "”";
+      input.value = "";
+    }
   </script>
 
 </body>
