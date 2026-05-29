@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>about her ♡</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #0d0909, #160c18, #0d0909);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.1;
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff8a00, #ff4fd8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+
+    header p {
+      max-width: 650px;
+      color: #c7c7c7;
+      line-height: 1.8;
+      font-size: 1.15rem;
+    }
+
+    section {
+      padding: 90px 8%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .title {
+      text-align: center;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 55px;
+      background: linear-gradient(90deg, #ff8a00, #ff4fd8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .card,
+    .memory,
+    .about {
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: 0.35s ease;
+    }
+
+    .card:hover,
+    .memory:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 79, 216, 0.35);
+      box-shadow: 0 15px 35px rgba(255, 79, 216, 0.12);
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .photo {
+      width: 100%;
+      height: 280px;
+      background: #1a151a;
+      overflow: hidden;
+    }
+
+    .photo img,
+    .memory-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .photo img,
+    .memory:hover .memory-photo img {
+      transform: scale(1.05);
+    }
+
+    .content {
+      padding: 25px;
+    }
+
+    .content h3,
+    .memory-text h4 {
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+      background: linear-gradient(90deg, #ff9a3d, #ff66dc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .content p,
+    .memory-text p {
+      color: #c9c9c9;
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .about {
+      padding: 50px;
+      line-height: 2;
+      font-size: 1.08rem;
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about p {
+      margin-bottom: 22px;
+      color: #dedede;
+    }
+
+    .about p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about span {
+      font-weight: 700;
+      background: linear-gradient(90deg, #ff9a3d, #ff66dc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+
+    .memory-photo {
+      height: 240px;
+      background: #1a151a;
+      overflow: hidden;
+    }
+
+    .memory-text {
+      padding: 25px;
+    }
+
+    footer {
+      padding: 60px 20px;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 70px 6%;
+      }
+
+      .about {
+        padding: 35px 25px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stars"></div>
+
+  <header>
+    <h1>about her ♡</h1>
+    <p>
+      um sitezinho para uma garota do Piauí que provavelmente
+      se apega mais a personagens fictícias do que deveria.
+    </p>
+  </header>
+
+  <section id="wifeys">
+    <h2 class="title">her wifeys 💋</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="photo">
+          <img src="fotos/jennie.jpg" alt="Jennie">
+        </div>
+
+        <div class="content">
+          <h3>Jennie</h3>
+          <p>
+            alterou completamente a química cerebral dela.
+            desde então, ela nunca mais foi uma pessoa normal.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo">
+          <img src="fotos/sophia.jpg" alt="Sophia">
+        </div>
+
+        <div class="content">
+          <h3>Sophia</h3>
+          <p>
+            nossa mulher. aparentemente, ela gosta de sofrer
+            por mulheres bonitas, talentosas e inalcançáveis.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo">
+          <img src="fotos/rose.jpg" alt="Rosé">
+        </div>
+
+        <div class="content">
+          <h3>Rosé</h3>
+          <p>
+            dona da voz que cura e de uma beleza que destrói
+            qualquer estabilidade emocional que ela finge ter.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo">
+          <img src="fotos/natasha.webp" alt="Natasha">
+        </div>
+
+        <div class="content">
+          <h3>Natasha</h3>
+          <p>
+            mulher com cara de quem pisaria nela e ainda faria
+            ela agradecer. exatamente o tipo da Joyce.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="title">about her ✮</h2>
+
+    <div class="about">
+      <p>
+        menina do <span>Piauí</span>, agora com <span>20 anos</span>,
+        vivendo provavelmente em um ciclo infinito de:
+        começar uma série nova, se apegar, sofrer e começar outra.
+      </p>
+
+      <p>
+        tem energia de quem diz “não ligo”, mas passa exatamente
+        quatro horas pensando em uma mensagem.
+      </p>
+
+      <p>
+        parece protagonista de série indie da Netflix:
+        meio caótica, engraçada sem querer, com playlist triste
+        e vários pensamentos acumulados.
+      </p>
+
+      <p>
+        a personalidade parece uma mistura de sarcasmo,
+        sensibilidade escondida e obsessão por personagens femininas.
+      </p>
+    </div>
+  </section>
+
+  <section id="memories">
+    <h2 class="title">little things about her ♡</h2>
+
+    <div class="gallery">
+
+      <div class="memory">
+        <div class="memory-photo">
+          <img src="fotos/print.jpeg" alt="Ela falando de série">
+        </div>
+
+        <div class="memory-text">
+          <h4>ela falando de série</h4>
+          <p>
+            consegue transformar qualquer conversa simples
+            em uma análise de personagem de quarenta minutos.
+          </p>
+        </div>
+      </div>
+
+      <div class="memory">
+        <div class="memory-photo">
+          <img src="fotos/printres.jpeg" alt="O humor dela">
+        </div>
+
+        <div class="memory-text">
+          <h4>o humor dela</h4>
+          <p>
+            faz piada de literalmente tudo, inclusive das próprias
+            desgraças. e infelizmente isso é muito engraçado.
+          </p>
+        </div>
+      </div>
+
+      <div class="memory">
+        <div class="memory-photo">
+          <img src="fotos/printdois.jpeg" alt="Momento favorito">
+        </div>
+
+        <div class="memory-text">
+          <h4>momento favorito</h4>
+          <p>
+            ganhei um poema. isso aqui já diz muita coisa.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    feito com carinho ♡
+  </footer>
+
+  <script>
+    const starsContainer = document.querySelector(".stars");
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement("div");
+
+      star.classList.add("star");
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDelay = Math.random() * 3 + "s";
+
+      const size = Math.random() * 2 + 1;
+      star.style.width = size + "px";
+      star.style.height = size + "px";
+
+      fragment.appendChild(star);
+    }
+
+    starsContainer.appendChild(fragment);
+  </script>
+
+</body>
+</html>
